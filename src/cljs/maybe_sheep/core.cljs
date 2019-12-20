@@ -3,6 +3,11 @@
    [reagent.core :as reagent :refer [atom]]
    [reagent.session :as session]
    [reitit.frontend :as reitit]
+   [maybe-sheep.pages.homepage :refer [home-page]]
+   [maybe-sheep.pages.about :refer [about-page]]
+   [maybe-sheep.pages.misc :refer [misc-page]]
+   [maybe-sheep.pages.post :refer [post-page]]
+   [maybe-sheep.pages.posts :refer [posts-page]]
    [clerk.core :as clerk]
    [accountant.core :as accountant]))
 
@@ -26,13 +31,13 @@
 ;; -------------------------
 ;; Page components
 
-(defn home-page []
-  (fn []
-    [:span.main
-     [:h1 "Welcome to maybe-sheep"]
-     [:ul
-      [:li [:a {:href (path-for :items)} "Items of maybe-sheep"]]
-      [:li [:a {:href "/broken/link"} "Broken link"]]]]))
+; (defn home-page []
+;   (fn []
+;     [:span.main
+;      [:h1 "Welcome to maybe-sheep"]
+;      [:ul
+;       [:li [:a {:href (path-for :items)} "Items of maybe-sheep"]]
+;       [:li [:a {:href "/broken/link"} "Broken link"]]]]))
 
 
 
@@ -55,9 +60,9 @@
        [:p [:a {:href (path-for :items)} "Back to the list of items"]]])))
 
 
-(defn about-page []
-  (fn [] [:span.main
-          [:h1 "About maybe-sheep"]]))
+; (defn about-page []
+;   (fn [] [:span.main
+;           [:h1 "About maybe-sheep"]]))
 
 
 ;; -------------------------
@@ -67,8 +72,8 @@
   (case route
     :index #'home-page
     :about #'about-page
-    :items #'items-page
-    :item #'item-page))
+    :items #'posts-page
+    :item #'post-page))
 
 
 ;; -------------------------
