@@ -6,10 +6,11 @@
   
   ; (def current-post (atom {:current-post nil}))
   (def content-list (get-in content-store [:content]))
-  
+(def key-list (keys content-list))
   ; @current-post
-  
-  
+  ; so if we pull all of the keys out, we have them in the post but how to connect them?
+(def loaded-post "Loaded post: " (atom (@current-post key-list)))
+
   (defn post-page []
     (fn []
       [:div.w-75
@@ -19,6 +20,8 @@
              full-article (get-in content-list [(:current-post cp) :full-article])]
          [:span.flex.flex-column.justify-between.content-center.items-center.h-100.overflow-scroll
           [:h1.avenir title]
+        (js/console.log key-list @current-post)
+        (js/console.log @loaded-post)
           [:div.avenir.near-black prev]
           [:div.flex.justify-center.article-height full-article]
           [:p [:a.avenir.link.dim.navy {:href (path-for :posts)} "Back to the list of items"]]])]))

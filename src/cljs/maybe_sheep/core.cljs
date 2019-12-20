@@ -42,23 +42,23 @@
 
 
 
-(defn items-page []
-  (fn []
-    [:span.main
-     [:h1 "The items of maybe-sheep"]
-     [:ul (map (fn [item-id]
-                 [:li {:name (str "item-" item-id) :key (str "item-" item-id)}
-                  [:a {:href (path-for :item {:item-id item-id})} "Item: " item-id]])
-               (range 1 60))]]))
+; (defn items-page []
+;   (fn []
+;     [:span.main
+;      [:h1 "The items of maybe-sheep"]
+;      [:ul (map (fn [item-id]
+;                  [:li {:name (str "item-" item-id) :key (str "item-" item-id)}
+;                   [:a {:href (path-for :item {:item-id item-id})} "Item: " item-id]])
+;                (range 1 60))]]))
 
 
-(defn item-page []
-  (fn []
-    (let [routing-data (session/get :route)
-          item (get-in routing-data [:route-params :item-id])]
-      [:span.main
-       [:h1 (str "Item " item " of maybe-sheep")]
-       [:p [:a {:href (path-for :items)} "Back to the list of items"]]])))
+; (defn item-page []
+;   (fn []
+;     (let [routing-data (session/get :route)
+;           item (get-in routing-data [:route-params :item-id])]
+;       [:span.main
+;        [:h1 (str "Item " item " of maybe-sheep")]
+;        [:p [:a {:href (path-for :items)} "Back to the list of items"]]])))
 
 
 ; (defn about-page []
