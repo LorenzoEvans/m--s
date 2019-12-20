@@ -28,6 +28,7 @@
     (:path (reitit/match-by-name router route))))
 
 (path-for :about)
+(path-for :items)
 ;; -------------------------
 ;; Page components
 
